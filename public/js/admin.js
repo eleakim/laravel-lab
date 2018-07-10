@@ -31803,29 +31803,31 @@ window._ = __webpack_require__(10);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(3);
+    window.$ = window.jQuery = __webpack_require__(3);
 
-  __webpack_require__(12);
+    __webpack_require__(12);
 
-  __webpack_require__(47);
-  __webpack_require__(49);
-  __webpack_require__(50);
-  __webpack_require__(51);
-  window.Waves = __webpack_require__(52);
-  __webpack_require__(53);
-  window.Raphael = __webpack_require__(54);
-  __webpack_require__(55);
-  __webpack_require__(56);
-  __webpack_require__(57);
-  __webpack_require__(58);
-  __webpack_require__(59);
-  __webpack_require__(60);
-  __webpack_require__(61);
-  __webpack_require__(62);
-  __webpack_require__(63);
-  __webpack_require__(64);
-  __webpack_require__(65);
-} catch (e) {}
+    __webpack_require__(47);
+    __webpack_require__(49);
+    __webpack_require__(50);
+    __webpack_require__(51);
+    window.Waves = __webpack_require__(52);
+    __webpack_require__(53);
+    window.Raphael = __webpack_require__(54);
+    __webpack_require__(55);
+    __webpack_require__(56);
+    __webpack_require__(57);
+    __webpack_require__(58);
+    __webpack_require__(59);
+    __webpack_require__(60);
+    __webpack_require__(61);
+    __webpack_require__(62);
+    __webpack_require__(63);
+    __webpack_require__(64);
+    __webpack_require__(65);
+} catch (e) {
+    console.log(e.message, e.name);
+}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -31846,9 +31848,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 /**
@@ -61910,7 +61912,11 @@ $(function () {
     $.AdminBSB.select.activate();
     $.AdminBSB.search.activate();
 
+    console.log('adminBSB');
+
     setTimeout(function () { $('.page-loader-wrapper').fadeOut(); }, 50);
+
+    console.log('hide the loader');
 });
 
 /***/ }),

@@ -31,7 +31,9 @@ try {
     require('adminbsb-materialdesign/js/pages/index.js');
     require('adminbsb-materialdesign/js/demo.js');
     
-} catch (e) {}
+} catch (e) {
+    console.log(e.message, e.name);
+}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
