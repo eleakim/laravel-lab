@@ -31803,16 +31803,16 @@ window._ = __webpack_require__(10);
  */
 
 try {
-    window.$ = window.jQuery = __webpack_require__(3);
+    // window.$ = window.jQuery = require('jquery');
+    window.$ = window.jQuery = __webpack_require__(47);
 
     __webpack_require__(12);
 
-    __webpack_require__(47);
     __webpack_require__(49);
     __webpack_require__(50);
     __webpack_require__(51);
     window.Waves = __webpack_require__(52);
-    __webpack_require__(53);
+    window.$.fn.countTo = window.jQuery.fn.countTo = __webpack_require__(53);
     window.Raphael = __webpack_require__(54);
     __webpack_require__(55);
     __webpack_require__(56);
@@ -31822,9 +31822,9 @@ try {
     __webpack_require__(60);
     __webpack_require__(61);
     __webpack_require__(62);
-    __webpack_require__(63);
-    __webpack_require__(64);
-    __webpack_require__(65);
+    __webpack_require__(84);
+    __webpack_require__(85);
+    __webpack_require__(86);
 } catch (e) {
     console.log(e.message, e.name);
 }
@@ -37058,7 +37058,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         // Browser globals
         factory(jQuery);
     }
-}(function ($) {
+}(function( $, window, document, undefined ) {
   var CountTo = function (element, options) {
     this.$element = $(element);
     this.options  = $.extend({}, CountTo.DEFAULTS, this.dataOptions(), options);
@@ -37176,6 +37176,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       data[method].call(data);
     });
   };
+
+  return $.fn.countTo;
 }));
 
 
@@ -61453,7 +61455,28 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 63 */
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */
 /***/ (function(module, exports) {
 
 if (typeof jQuery === "undefined") {
@@ -61498,14 +61521,13 @@ $.AdminBSB.options = {
         effectIn: 'fadeIn',
         effectOut: 'fadeOut'
     }
-}
 
-/* Left Sidebar - Function =================================================================================================
-*  You can manage the left sidebar menu options
-*  
-*/
-$.AdminBSB.leftSideBar = {
-    activate: function () {
+    /* Left Sidebar - Function =================================================================================================
+    *  You can manage the left sidebar menu options
+    *  
+    */
+};$.AdminBSB.leftSideBar = {
+    activate: function activate() {
         var _this = this;
         var $body = $('body');
         var $overlay = $('.overlay');
@@ -61513,7 +61535,9 @@ $.AdminBSB.leftSideBar = {
         //Close sidebar
         $(window).click(function (e) {
             var $target = $(e.target);
-            if (e.target.nodeName.toLowerCase() === 'i') { $target = $(e.target).parent(); }
+            if (e.target.nodeName.toLowerCase() === 'i') {
+                $target = $(e.target).parent();
+            }
 
             if (!$target.hasClass('bars') && _this.isOpen() && $target.parents('#leftsidebar').length === 0) {
                 if (!$target.hasClass('js-right-sidebar')) $overlay.fadeOut();
@@ -61565,10 +61589,10 @@ $.AdminBSB.leftSideBar = {
         Waves.attach('.menu .list a', ['waves-block']);
         Waves.init();
     },
-    setMenuHeight: function (isFirstTime) {
+    setMenuHeight: function setMenuHeight(isFirstTime) {
         if (typeof $.fn.slimScroll != 'undefined') {
             var configs = $.AdminBSB.options.leftSideBar;
-            var height = ($(window).height() - ($('.legal').outerHeight() + $('.user-info').outerHeight() + $('.navbar').innerHeight()));
+            var height = $(window).height() - ($('.legal').outerHeight() + $('.user-info').outerHeight() + $('.navbar').innerHeight());
             var $el = $('.list');
 
             $el.slimscroll({
@@ -61582,12 +61606,12 @@ $.AdminBSB.leftSideBar = {
 
             //Scroll active menu item when page load, if option set = true
             if ($.AdminBSB.options.leftSideBar.scrollActiveItemWhenPageLoad) {
-                var activeItemOffsetTop = $('.menu .list li.active')[0].offsetTop
+                var activeItemOffsetTop = $('.menu .list li.active')[0].offsetTop;
                 if (activeItemOffsetTop > 150) $el.slimscroll({ scrollTo: activeItemOffsetTop + 'px' });
             }
         }
     },
-    checkStatuForResize: function (firstTime) {
+    checkStatuForResize: function checkStatuForResize(firstTime) {
         var $body = $('body');
         var $openCloseBar = $('.navbar .navbar-header .bars');
         var width = $body.width();
@@ -61601,13 +61625,12 @@ $.AdminBSB.leftSideBar = {
         if (width < $.AdminBSB.options.leftSideBar.breakpointWidth) {
             $body.addClass('ls-closed');
             $openCloseBar.fadeIn();
-        }
-        else {
+        } else {
             $body.removeClass('ls-closed');
             $openCloseBar.fadeOut();
         }
     },
-    isOpen: function () {
+    isOpen: function isOpen() {
         return $('body').hasClass('overlay-open');
     }
 };
@@ -61618,7 +61641,7 @@ $.AdminBSB.leftSideBar = {
 *  
 */
 $.AdminBSB.rightSideBar = {
-    activate: function () {
+    activate: function activate() {
         var _this = this;
         var $sidebar = $('#rightsidebar');
         var $overlay = $('.overlay');
@@ -61626,7 +61649,9 @@ $.AdminBSB.rightSideBar = {
         //Close sidebar
         $(window).click(function (e) {
             var $target = $(e.target);
-            if (e.target.nodeName.toLowerCase() === 'i') { $target = $(e.target).parent(); }
+            if (e.target.nodeName.toLowerCase() === 'i') {
+                $target = $(e.target).parent();
+            }
 
             if (!$target.hasClass('js-right-sidebar') && _this.isOpen() && $target.parents('#rightsidebar').length === 0) {
                 if (!$target.hasClass('bars')) $overlay.fadeOut();
@@ -61636,22 +61661,25 @@ $.AdminBSB.rightSideBar = {
 
         $('.js-right-sidebar').on('click', function () {
             $sidebar.toggleClass('open');
-            if (_this.isOpen()) { $overlay.fadeIn(); } else { $overlay.fadeOut(); }
+            if (_this.isOpen()) {
+                $overlay.fadeIn();
+            } else {
+                $overlay.fadeOut();
+            }
         });
     },
-    isOpen: function () {
+    isOpen: function isOpen() {
         return $('.right-sidebar').hasClass('open');
     }
-}
-//==========================================================================================================================
+    //==========================================================================================================================
 
-/* Searchbar - Function ================================================================================================
-*  You can manage the search bar
-*  
-*/
-var $searchBar = $('.search-bar');
+    /* Searchbar - Function ================================================================================================
+    *  You can manage the search bar
+    *  
+    */
+};var $searchBar = $('.search-bar');
 $.AdminBSB.search = {
-    activate: function () {
+    activate: function activate() {
         var _this = this;
 
         //Search button click event
@@ -61671,30 +61699,33 @@ $.AdminBSB.search = {
             }
         });
     },
-    showSearchBar: function () {
+    showSearchBar: function showSearchBar() {
         $searchBar.addClass('open');
         $searchBar.find('input[type="text"]').focus();
     },
-    hideSearchBar: function () {
+    hideSearchBar: function hideSearchBar() {
         $searchBar.removeClass('open');
         $searchBar.find('input[type="text"]').val('');
     }
-}
-//==========================================================================================================================
+    //==========================================================================================================================
 
-/* Navbar - Function =======================================================================================================
-*  You can manage the navbar
-*  
-*/
-$.AdminBSB.navbar = {
-    activate: function () {
+    /* Navbar - Function =======================================================================================================
+    *  You can manage the navbar
+    *  
+    */
+};$.AdminBSB.navbar = {
+    activate: function activate() {
         var $body = $('body');
         var $overlay = $('.overlay');
 
         //Open left sidebar panel
         $('.bars').on('click', function () {
             $body.toggleClass('overlay-open');
-            if ($body.hasClass('overlay-open')) { $overlay.fadeIn(); } else { $overlay.fadeOut(); }
+            if ($body.hasClass('overlay-open')) {
+                $overlay.fadeIn();
+            } else {
+                $overlay.fadeOut();
+            }
         });
 
         //Close collapse bar on click event
@@ -61709,15 +61740,14 @@ $.AdminBSB.navbar = {
             }
         });
     }
-}
-//==========================================================================================================================
+    //==========================================================================================================================
 
-/* Input - Function ========================================================================================================
-*  You can manage the inputs(also textareas) with name of class 'form-control'
-*  
-*/
-$.AdminBSB.input = {
-    activate: function () {
+    /* Input - Function ========================================================================================================
+    *  You can manage the inputs(also textareas) with name of class 'form-control'
+    *  
+    */
+};$.AdminBSB.input = {
+    activate: function activate() {
         //On focus event
         $('.form-control').focus(function () {
             $(this).parent().addClass('focused');
@@ -61727,9 +61757,10 @@ $.AdminBSB.input = {
         $('.form-control').focusout(function () {
             var $this = $(this);
             if ($this.parents('.form-group').hasClass('form-float')) {
-                if ($this.val() == '') { $this.parents('.form-line').removeClass('focused'); }
-            }
-            else {
+                if ($this.val() == '') {
+                    $this.parents('.form-line').removeClass('focused');
+                }
+            } else {
                 $this.parents('.form-line').removeClass('focused');
             }
         });
@@ -61746,41 +61777,41 @@ $.AdminBSB.input = {
             }
         });
     }
-}
-//==========================================================================================================================
+    //==========================================================================================================================
 
-/* Form - Select - Function ================================================================================================
-*  You can manage the 'select' of form elements
-*  
-*/
-$.AdminBSB.select = {
-    activate: function () {
-        if ($.fn.selectpicker) { $('select:not(.ms)').selectpicker(); }
+    /* Form - Select - Function ================================================================================================
+    *  You can manage the 'select' of form elements
+    *  
+    */
+};$.AdminBSB.select = {
+    activate: function activate() {
+        if ($.fn.selectpicker) {
+            $('select:not(.ms)').selectpicker();
+        }
     }
-}
-//==========================================================================================================================
+    //==========================================================================================================================
 
-/* DropdownMenu - Function =================================================================================================
-*  You can manage the dropdown menu
-*  
-*/
+    /* DropdownMenu - Function =================================================================================================
+    *  You can manage the dropdown menu
+    *  
+    */
 
-$.AdminBSB.dropdownMenu = {
-    activate: function () {
+};$.AdminBSB.dropdownMenu = {
+    activate: function activate() {
         var _this = this;
 
         $('.dropdown, .dropup, .btn-group').on({
-            "show.bs.dropdown": function () {
+            "show.bs.dropdown": function showBsDropdown() {
                 var dropdown = _this.dropdownEffect(this);
                 _this.dropdownEffectStart(dropdown, dropdown.effectIn);
             },
-            "shown.bs.dropdown": function () {
+            "shown.bs.dropdown": function shownBsDropdown() {
                 var dropdown = _this.dropdownEffect(this);
                 if (dropdown.effectIn && dropdown.effectOut) {
-                    _this.dropdownEffectEnd(dropdown, function () { });
+                    _this.dropdownEffectEnd(dropdown, function () {});
                 }
             },
-            "hide.bs.dropdown": function (e) {
+            "hide.bs.dropdown": function hideBsDropdown(e) {
                 var dropdown = _this.dropdownEffect(this);
                 if (dropdown.effectOut) {
                     e.preventDefault();
@@ -61796,15 +61827,21 @@ $.AdminBSB.dropdownMenu = {
         Waves.attach('.dropdown-menu li a', ['waves-block']);
         Waves.init();
     },
-    dropdownEffect: function (target) {
-        var effectIn = $.AdminBSB.options.dropdownMenu.effectIn, effectOut = $.AdminBSB.options.dropdownMenu.effectOut;
-        var dropdown = $(target), dropdownMenu = $('.dropdown-menu', target);
+    dropdownEffect: function dropdownEffect(target) {
+        var effectIn = $.AdminBSB.options.dropdownMenu.effectIn,
+            effectOut = $.AdminBSB.options.dropdownMenu.effectOut;
+        var dropdown = $(target),
+            dropdownMenu = $('.dropdown-menu', target);
 
         if (dropdown.length > 0) {
             var udEffectIn = dropdown.data('effect-in');
             var udEffectOut = dropdown.data('effect-out');
-            if (udEffectIn !== undefined) { effectIn = udEffectIn; }
-            if (udEffectOut !== undefined) { effectOut = udEffectOut; }
+            if (udEffectIn !== undefined) {
+                effectIn = udEffectIn;
+            }
+            if (udEffectOut !== undefined) {
+                effectOut = udEffectOut;
+            }
         }
 
         return {
@@ -61815,14 +61852,14 @@ $.AdminBSB.dropdownMenu = {
             effectOut: effectOut
         };
     },
-    dropdownEffectStart: function (data, effectToStart) {
+    dropdownEffectStart: function dropdownEffectStart(data, effectToStart) {
         if (effectToStart) {
             data.dropdown.addClass('dropdown-animating');
             data.dropdownMenu.addClass('animated dropdown-animated');
             data.dropdownMenu.addClass(effectToStart);
         }
     },
-    dropdownEffectEnd: function (data, callback) {
+    dropdownEffectEnd: function dropdownEffectEnd(data, callback) {
         var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         data.dropdown.one(animationEnd, function () {
             data.dropdown.removeClass('dropdown-animating');
@@ -61835,14 +61872,13 @@ $.AdminBSB.dropdownMenu = {
             }
         });
     }
-}
-//==========================================================================================================================
+    //==========================================================================================================================
 
-/* Browser - Function ======================================================================================================
-*  You can manage browser
-*  
-*/
-var edge = 'Microsoft Edge';
+    /* Browser - Function ======================================================================================================
+    *  You can manage browser
+    *  
+    */
+};var edge = 'Microsoft Edge';
 var ie10 = 'Internet Explorer 10';
 var ie11 = 'Internet Explorer 11';
 var opera = 'Opera';
@@ -61851,13 +61887,13 @@ var chrome = 'Google Chrome';
 var safari = 'Safari';
 
 $.AdminBSB.browser = {
-    activate: function () {
+    activate: function activate() {
         var _this = this;
         var className = _this.getClassName();
 
         if (className !== '') $('html').addClass(_this.getClassName());
     },
-    getBrowser: function () {
+    getBrowser: function getBrowser() {
         var userAgent = navigator.userAgent.toLowerCase();
 
         if (/edge/i.test(userAgent)) {
@@ -61878,7 +61914,7 @@ $.AdminBSB.browser = {
 
         return undefined;
     },
-    getClassName: function () {
+    getClassName: function getClassName() {
         var browser = this.getBrowser();
 
         if (browser === edge) {
@@ -61899,10 +61935,9 @@ $.AdminBSB.browser = {
             return '';
         }
     }
-}
-//==========================================================================================================================
+    //==========================================================================================================================
 
-$(function () {
+};$(function () {
     $.AdminBSB.browser.activate();
     $.AdminBSB.leftSideBar.activate();
     $.AdminBSB.rightSideBar.activate();
@@ -61912,31 +61947,29 @@ $(function () {
     $.AdminBSB.select.activate();
     $.AdminBSB.search.activate();
 
-    console.log('adminBSB');
-
-    setTimeout(function () { $('.page-loader-wrapper').fadeOut(); }, 50);
-
-    console.log('hide the loader');
+    setTimeout(function () {
+        $('.page-loader-wrapper').fadeOut();
+    }, 50);
 });
 
 /***/ }),
-/* 64 */
+/* 85 */
 /***/ (function(module, exports) {
 
-﻿$(function () {
+$(function () {
     //Widgets count
     $('.count-to').countTo();
 
     //Sales count to
     $('.sales-count-to').countTo({
-        formatter: function (value, options) {
+        formatter: function formatter(value, options) {
             return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, ' ').replace('.', ',');
         }
     });
 
-    initRealTimeChart();
-    initDonutChart();
-    initSparkline();
+    // initRealTimeChart();
+    // initDonutChart();
+    // initSparkline();
 });
 
 var realtime = 'on';
@@ -62008,25 +62041,30 @@ function initDonutChart() {
         }, {
             label: 'Opera',
             value: 12
-        },
-        {
+        }, {
             label: 'Other',
             value: 3
         }],
         colors: ['rgb(233, 30, 99)', 'rgb(0, 188, 212)', 'rgb(255, 152, 0)', 'rgb(0, 150, 136)', 'rgb(96, 125, 139)'],
-        formatter: function (y) {
-            return y + '%'
+        formatter: function formatter(y) {
+            return y + '%';
         }
     });
 }
 
-var data = [], totalPoints = 110;
+var data = [],
+    totalPoints = 110;
 function getRandomData() {
     if (data.length > 0) data = data.slice(1);
 
     while (data.length < totalPoints) {
-        var prev = data.length > 0 ? data[data.length - 1] : 50, y = prev + Math.random() * 10 - 5;
-        if (y < 0) { y = 0; } else if (y > 100) { y = 100; }
+        var prev = data.length > 0 ? data[data.length - 1] : 50,
+            y = prev + Math.random() * 10 - 5;
+        if (y < 0) {
+            y = 0;
+        } else if (y > 100) {
+            y = 100;
+        }
 
         data.push(y);
     }
@@ -62040,7 +62078,7 @@ function getRandomData() {
 }
 
 /***/ }),
-/* 65 */
+/* 86 */
 /***/ (function(module, exports) {
 
 $(function () {
@@ -62075,9 +62113,9 @@ function setSkinListHeightAndScroll(isFirstTime) {
     var height = $(window).height() - ($('.navbar').innerHeight() + $('.right-sidebar .nav-tabs').outerHeight());
     var $el = $('.demo-choose-skin');
 
-    if (!isFirstTime){
-      $el.slimScroll({ destroy: true }).height('auto');
-      $el.parent().find('.slimScrollBar, .slimScrollRail').remove();
+    if (!isFirstTime) {
+        $el.slimScroll({ destroy: true }).height('auto');
+        $el.parent().find('.slimScrollBar, .slimScrollRail').remove();
     }
 
     $el.slimscroll({
@@ -62095,9 +62133,9 @@ function setSettingListHeightAndScroll(isFirstTime) {
     var height = $(window).height() - ($('.navbar').innerHeight() + $('.right-sidebar .nav-tabs').outerHeight());
     var $el = $('.right-sidebar .demo-settings');
 
-    if (!isFirstTime){
-      $el.slimScroll({ destroy: true }).height('auto');
-      $el.parent().find('.slimScrollBar, .slimScrollRail').remove();
+    if (!isFirstTime) {
+        $el.slimScroll({ destroy: true }).height('auto');
+        $el.parent().find('.slimScrollBar, .slimScrollRail').remove();
     }
 
     $el.slimscroll({
@@ -62134,23 +62172,21 @@ function addLoadEvent(func) {
         window.onload = function () {
             oldonload();
             func();
-        }
+        };
     }
 }
 
 function loadTracking() {
     (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments);
+        }, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', trackingId, 'auto');
     ga('send', 'pageview');
 }
 //========================================================================================================
-
 
 /***/ })
 /******/ ]);
