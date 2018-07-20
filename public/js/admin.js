@@ -31822,6 +31822,16 @@ try {
     __webpack_require__(60);
     __webpack_require__(61);
     __webpack_require__(62);
+    // datatables = require('adminbsb-materialdesign/plugins/jquery-datatable/jquery.dataTables.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.flash.min.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/jszip.min.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/pdfmake.min.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/vfs_fonts.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.html5.min.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.print.min.js');
+
     __webpack_require__(63);
     __webpack_require__(64);
     __webpack_require__(65);

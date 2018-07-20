@@ -27,6 +27,16 @@ try {
     require('adminbsb-materialdesign/plugins/flot-charts/jquery.flot.categories.js');
     require('adminbsb-materialdesign/plugins/flot-charts/jquery.flot.time.js');
     require('adminbsb-materialdesign/plugins/jquery-sparkline/jquery.sparkline.js');
+    // datatables = require('adminbsb-materialdesign/plugins/jquery-datatable/jquery.dataTables.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.flash.min.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/jszip.min.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/pdfmake.min.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/vfs_fonts.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.html5.min.js');
+    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.print.min.js');
+
     require('./admin/admin.js');
     require('./admin/pages/index.js');
     require('./admin/demo.js');
