@@ -28,7 +28,7 @@ Route::group([
     'namespace' => 'admin',
     'middleware' => ['auth', 'admin']
 ],function(){
-    Route::get('/', function () {
-        return view('admin.home');
-    })->name('home');
+    Route::get('/', function () { return view('admin.home'); })->name('home');
+
+    Route::resource('tag', 'TagController');
 });
