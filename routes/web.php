@@ -19,6 +19,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', function () {
-    return view('panel');
+/**
+ * Admin routes
+ */
+Route::group([
+    'as' => 'admin.',
+    'prefix' => 'admin',
+    'namespace' => 'admin',
+    'middleware' => ['auth', 'admin']
+],function(){
+    Route::get('/', function () {
+        return view('admin.home');
+    })->name('home');
 });

@@ -31822,9 +31822,9 @@ try {
     __webpack_require__(60);
     __webpack_require__(61);
     __webpack_require__(62);
-    __webpack_require__(84);
-    __webpack_require__(85);
-    __webpack_require__(86);
+    __webpack_require__(63);
+    __webpack_require__(64);
+    __webpack_require__(65);
 } catch (e) {
     console.log(e.message, e.name);
 }
@@ -61455,28 +61455,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */
+/* 63 */
 /***/ (function(module, exports) {
 
 if (typeof jQuery === "undefined") {
@@ -61953,7 +61932,7 @@ $.AdminBSB.browser = {
 });
 
 /***/ }),
-/* 85 */
+/* 64 */
 /***/ (function(module, exports) {
 
 $(function () {
@@ -62078,7 +62057,7 @@ function getRandomData() {
 }
 
 /***/ }),
-/* 86 */
+/* 65 */
 /***/ (function(module, exports) {
 
 $(function () {

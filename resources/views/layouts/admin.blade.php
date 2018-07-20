@@ -31,9 +31,9 @@
         </div>
     </div>
     <!-- #END# Page Loader -->
-    <!-- Overlay For Sidebars -->
+    
     <div class="overlay"></div>
-    <!-- #END# Overlay For Sidebars -->
+
     <!-- Search Bar -->
     <div class="search-bar">
         <div class="search-icon">
@@ -45,14 +45,17 @@
         </div>
     </div>
     <!-- #END# Search Bar -->
+
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
+
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
                 <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
             </div>
+            
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Call Search -->
@@ -248,10 +251,13 @@
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
+
         </div>
     </nav>
     <!-- #Top Bar -->
+
     <section>
+        
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
@@ -277,12 +283,13 @@
                 </div>
             </div>
             <!-- #User Info -->
+
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a href="../../index.html">
+                        <a href="{{ route('admin.home') }}">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
