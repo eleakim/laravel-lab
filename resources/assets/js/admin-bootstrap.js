@@ -8,17 +8,13 @@ window._ = require('lodash');
  */
 
 try {
-    // window.$ = window.jQuery = require('jquery');
     window.$ = window.jQuery = require('adminbsb-materialdesign/plugins/jquery/jquery.min.js');
-
-    require('bootstrap-sass');
-
     require('adminbsb-materialdesign/plugins/bootstrap/js/bootstrap.js');
     require('adminbsb-materialdesign/plugins/bootstrap-select/js/bootstrap-select.js');
-    require('adminbsb-materialdesign/plugins/jquery-slimscroll/jquery.slimscroll.js');
     window.Waves = require('adminbsb-materialdesign/plugins/node-waves/waves.js');
     window.$.fn.countTo = window.jQuery.fn.countTo = require('adminbsb-materialdesign/plugins/jquery-countto/jquery.countTo.js');
     window.Raphael = require('adminbsb-materialdesign/plugins/raphael/raphael.min.js');
+    require('adminbsb-materialdesign/plugins/jquery-slimscroll/jquery.slimscroll.js');
     require('adminbsb-materialdesign/plugins/morrisjs/morris.js');
     require('adminbsb-materialdesign/plugins/chartjs/Chart.bundle.js');
     require('adminbsb-materialdesign/plugins/flot-charts/jquery.flot.js');
@@ -27,17 +23,21 @@ try {
     require('adminbsb-materialdesign/plugins/flot-charts/jquery.flot.categories.js');
     require('adminbsb-materialdesign/plugins/flot-charts/jquery.flot.time.js');
     require('adminbsb-materialdesign/plugins/jquery-sparkline/jquery.sparkline.js');
-    // datatables = require('adminbsb-materialdesign/plugins/jquery-datatable/jquery.dataTables.js');
-    // require('adminbsb-materialdesign/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js');
-    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js');
-    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.flash.min.js');
-    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/jszip.min.js');
-    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/pdfmake.min.js');
-    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/vfs_fonts.js');
-    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.html5.min.js');
-    // require('adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.print.min.js');
+
+    window.$.fn.DataTable = window.jQuery.fn.DataTable = require('datatables.net');
+    require('datatables.net-buttons');
+    require( 'datatables.net-buttons/js/buttons.colVis.js' );
+    require( 'datatables.net-buttons/js/buttons.html5.js' );
+    require( 'datatables.net-buttons/js/buttons.flash.js' );
+    require( 'datatables.net-buttons/js/buttons.print.js' );
+
+    require("adminbsb-materialdesign/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js");
+    require("adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/jszip.min.js");
+    require("adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/pdfmake.min.js");
+    require("adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/vfs_fonts.js");
 
     require('./admin/admin.js');
+    require('./admin/pages/tables/jquery-datatable.js');
     require('./admin/pages/index.js');
     require('./admin/demo.js');
     

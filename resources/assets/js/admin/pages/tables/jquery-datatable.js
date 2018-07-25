@@ -4,7 +4,7 @@ $(function () {
     });
 
     //Exportable table
-    $('.js-exportable').DataTable({
+    $('.dataTable').DataTable({
         dom: 'Bfrtip',
         responsive: true,
         buttons: [
