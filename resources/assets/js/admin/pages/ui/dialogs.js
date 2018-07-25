@@ -1,6 +1,7 @@
 $(function () {
     $('.js-sweetalert button').on('click', function () {
         var type = $(this).data('type');
+        var id = $(this).data('id');
         if (type === 'basic') {
             showBasicMessage();
         }
@@ -14,7 +15,7 @@ $(function () {
             showConfirmMessage();
         }
         else if (type === 'cancel') {
-            showCancelMessage();
+            showCancelMessage(id);
         }
         else if (type === 'with-custom-icon') {
             showWithCustomIconMessage();
@@ -61,7 +62,7 @@ function showConfirmMessage() {
     });
 }
 
-function showCancelMessage() {
+function showCancelMessage(id) {
     swal({
         title: "Are you sure?",
         text: "You will not be able to recover this imaginary file!",
@@ -74,7 +75,9 @@ function showCancelMessage() {
         closeOnCancel: false
     }, function (isConfirm) {
         if (isConfirm) {
+            event.preventDefault();
             swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            document.getElementById('delete-form-' + id).submit();
         } else {
             swal("Cancelled", "Your imaginary file is safe :)", "error");
         }

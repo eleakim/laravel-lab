@@ -31,4 +31,5 @@ Route::group([
     Route::get('/', function () { return view('admin.home'); })->name('home');
 
     Route::resource('tag', 'TagController');
+    Route::resource('category', 'CategoryController');
 });

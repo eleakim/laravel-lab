@@ -1,4 +1,4 @@
-# Projeto
+# Mkt Virtual Laravel template
 
 ## Instalação
 
@@ -21,7 +21,7 @@
 `npm run watch`
 
 
-## Core
-* PHP 7
+## Recursos
+* PHP 7.1.1
 * Laravel 5.6
-* Admimbsb
+* Admimbsb 1.0.5

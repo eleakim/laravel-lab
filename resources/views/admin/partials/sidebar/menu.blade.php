@@ -22,7 +22,7 @@
                     <a href="#">Adicionar novo</a>
                 </li>
                 <li>
-                    <a href="#">Categorias</a>
+                    <a href="{{ route('admin.category.index') }}">Categorias</a>
                 </li>
                 <li>
                     <a href="{{ route('admin.tag.index') }}">Tags</a>

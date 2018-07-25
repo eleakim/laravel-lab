@@ -23,6 +23,7 @@ try {
     require('adminbsb-materialdesign/plugins/flot-charts/jquery.flot.categories.js');
     require('adminbsb-materialdesign/plugins/flot-charts/jquery.flot.time.js');
     require('adminbsb-materialdesign/plugins/jquery-sparkline/jquery.sparkline.js');
+    require('adminbsb-materialdesign/plugins/sweetalert/sweetalert.min.js');
 
     window.$.fn.DataTable = window.jQuery.fn.DataTable = require('datatables.net');
     require('datatables.net-buttons');
@@ -38,6 +39,7 @@ try {
 
     require('./admin/admin.js');
     require('./admin/pages/tables/jquery-datatable.js');
+    require('./admin/pages/ui/dialogs.js');
     require('./admin/pages/index.js');
     require('./admin/demo.js');
     

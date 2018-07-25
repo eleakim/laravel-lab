@@ -29,6 +29,7 @@
                                         <th>Name</th>
                                         <th>Created at</th>
                                         <th>Updated at</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
 
@@ -38,6 +39,7 @@
                                         <th>Name</th>
                                         <th>Created at</th>
                                         <th>Updated at</th>
+                                        <th>Action</th>
                                     </tr>
                                 </tfoot>
 
@@ -50,6 +52,21 @@
                                             <td>{{ $tag->name }}</td>
                                             <td>{{ $tag->created_at }}</td>
                                             <td>{{ $tag->updated_at }}</td>
+                                            <td class="text-center js-sweetalert">
+                                                <a href="{{ route('admin.tag.edit', $tag->id) }}" class="btn btn-info waves-effect">
+                                                    <i class="material-icons">edit</i>
+                                                </a>
+
+                                                <button type="button" class="btn btn-delete waves-effect" data-id="{{ $tag->id }}" data-type="cancel">
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+
+                                                <form id="delete-form-{{ $tag->id }}" class="hidden" action="{{ route('admin.tag.destroy', $tag->id) }}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
+
+                                                </form>
+                                            </td>
                                         </tr>
 
                                     @endforeach
