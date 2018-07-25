@@ -97,7 +97,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.category.edit', compact('Category') );
+        return view('admin.category.edit', compact('category') );
     }
 
     /**
@@ -109,12 +109,49 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'image' => 'mimes:jpg,jpeg,png,bmp'
+        ]);
+
         $category = Category::find($id);
+        $image = $request->file('image');
+        $slug = str_slug($request->name);
+        $imagename = $category->image;
+
+        if ( isset( $image ) ) {
+            $currentDate = Carbon::now()->toDateString();
+            $imagename = $slug . '-' . $currentDate . '.' . uniqid() . '.' . $image->getClientOriginalExtension();
+
+            if ( ! Storage::disk('public')->exists('category') ) {
+                Storage::disk('public')->makeDirectory('category');
+            }
+
+            if ( ! Storage::disk('public')->exists('category/' . $category->image ) ) {
+                Storage::disk('public')->delete('category/' . $category->image );
+            }
+
+            $featured = Image::make($image)->resize(1600, 497)->save();
+            Storage::disk('public')->put('category/' . $imagename, $featured);
+
+            if ( ! Storage::disk('public')->exists('category/slider') ) {
+                Storage::disk('public')->makeDirectory('category/slider');
+            }
+
+            if ( ! Storage::disk('public')->exists('category/slider' . $category->image ) ) {
+                Storage::disk('public')->delete('category/slider' . $category->image );
+            }
+
+            $slider = Image::make($image)->resize(500, 333)->save();
+            Storage::disk('public')->put('category/slider/' . $imagename, $slider);
+        }
+
         $category->name = $request->name;
-        $category->slug = str_slug($request->name);
+        $category->slug = $slug;
+        $category->image = $imagename;
         $category->save();
 
-        return redirect()->back();
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -125,7 +162,17 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::find($id)->delete();
+        $category = Category::find($id);
+
+        if ( ! Storage::disk('public')->exists('category/' . $category->image ) ) {
+            Storage::disk('public')->delete('category/' . $category->image );
+        }
+
+        if ( ! Storage::disk('public')->exists('category/slider' . $category->image ) ) {
+            Storage::disk('public')->delete('category/slider' . $category->image );
+        }
+
+        $category->delete();
         return redirect()->back();
     }
 }

@@ -33,7 +33,6 @@
 
                                     <div class="form-group form-float">
                                         <input type="file" name="image" id="image" />
-
                                     </div>
 
                                     <a href="{{ route('admin.category.index') }}" class="btn btn-danger m-t-15 waves-effect">Cancelar</a>

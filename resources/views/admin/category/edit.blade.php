@@ -19,7 +19,7 @@
 
                         <div class="row clearfix">
 
-                            <form action="{{ route('admin.category.update', $category->id) }}" method="POST">
+                            <form action="{{ route('admin.category.update', $category->id) }}" method="POST" enctype="multipart/form-data">
                                 
                                 <div class="col-xs-12">
 
@@ -31,6 +31,10 @@
                                         <div class="form-line">
                                             <input id="name" name="name" type="text" class="form-control" placeholder="Nome da category" value="{{ $category->name }}" />
                                         </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <input type="file" name="image" id="image" />
                                     </div>
 
                                     <a href="{{ route('admin.category.index') }}" class="btn btn-danger m-t-15 waves-effect">Cancelar</a>
