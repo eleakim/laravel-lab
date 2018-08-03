@@ -8,7 +8,7 @@
 
 ## Configuração
 
-`.env.default` > `.env`
+`.env.example` > `.env`
 
 `php artisan migrate`
 
@@ -22,6 +22,7 @@
 
 
 ## Recursos
-* PHP 7.1.1
+* PHP 7+ (tested on 7.1.1)
+* MySQL 5.7+ (tested on 5.7.15)
 * Laravel 5.6
 * Admimbsb 1.0.5

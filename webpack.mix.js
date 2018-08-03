@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+require('dotenv').config();
 
 /*
  |--------------------------------------------------------------------------
@@ -16,4 +17,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .js('resources/assets/js/admin.js', 'public/js')
    .sass('resources/assets/sass/admin.scss', 'public/css');
 
-mix.browserSync('localhost:8000');
+if (mix.inProduction()) {
+    mix.version();
+}
+
+mix.browserSync( process.env.MIX_SENTRY_DSN_PUBLIC );
