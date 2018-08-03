@@ -6,20 +6,21 @@
 
 `npm install`
 
+`php artisan key:generate`
+
 ## Configuração
 
 `.env.example` > `.env`
 
 `php artisan migrate`
 
-`php artisan db::seed`
+`php artisan db:seed`
 
 ## Rodando
 
 `php artisan serve`
 
 `npm run watch`
-
 
 ## Recursos
 * PHP 7+ (tested on 7.1.1)

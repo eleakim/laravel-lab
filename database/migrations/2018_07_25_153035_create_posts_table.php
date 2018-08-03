@@ -15,7 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('excerpt');
@@ -24,9 +24,7 @@ class CreatePostsTable extends Migration
             $table->integer('view_count')->default(0);
             $table->boolean('status')->default(false);
             $table->boolean('is_approved')->default(false);
-            $table->foreign('user_id')
-                ->reference('id')->on('users')
-                ->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
